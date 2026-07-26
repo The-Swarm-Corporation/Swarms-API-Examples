@@ -1,0 +1,15 @@
+# Core — needed by almost every example
+requests
+python-dotenv
+
+# Async and streaming examples (heavy swarm, ETF grid, Claude Opus httpx)
+httpx
+
+# Official Python SDK (01_getting_started/hello_agent_sdk.py, 05_integrations/sdk)
+swarms-client
+
+# MCP integration only (05_integrations/mcp)
+fastmcp
+
+# Local agent framework — only auto_generate_agents_local.py needs this
+swarms
