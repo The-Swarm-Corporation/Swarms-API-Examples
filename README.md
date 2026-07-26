@@ -39,6 +39,7 @@ defaults to `https://api.swarms.world`. Point at a different deployment by setti
 | Use no dependencies at all | [`01_getting_started/hello_agent.sh`](01_getting_started/hello_agent.sh) |
 | Understand every agent config field | [`02_single_agent/basics/agent_completion.py`](02_single_agent/basics/agent_completion.py) |
 | Pick the right swarm type | [Swarm types](#swarm-types) below |
+| Pick the right model | [`07_model_integrations/`](07_model_integrations/) |
 | See a real-world build | [`04_industry_examples/`](04_industry_examples/) |
 
 ---
@@ -53,6 +54,7 @@ defaults to `https://api.swarms.world`. Point at a different deployment by setti
 | [`04_industry_examples/`](04_industry_examples/) | Complete builds for healthcare, finance, marketing, and more |
 | [`05_integrations/`](05_integrations/) | Python SDK, MCP server, raw cURL |
 | [`06_platform_utilities/`](06_platform_utilities/) | Models, rate limits, credits, usage, logs |
+| [`07_model_integrations/`](07_model_integrations/) | One agent per provider — GPT-5, Claude Opus/Sonnet 5, Gemini, Groq, DeepSeek, Grok, OpenRouter |
 | [`docs/`](docs/) | Long-form reference for agent completions and graph workflows |
 
 ---
@@ -104,6 +106,7 @@ The same examples, indexed by the domain they were built for.
 | Reasoning agents | [02_single_agent/reasoning/](02_single_agent/reasoning/) |
 | Auto-generated agent teams | [03_multi_agent/auto_generate_agents/](03_multi_agent/auto_generate_agents/) |
 | Frontier models (Claude Opus) | [02_single_agent/models/](02_single_agent/models/) |
+| Every model provider | [07_model_integrations/](07_model_integrations/) · [compare them side by side](07_model_integrations/compare_models.py) · [one swarm, many models](07_model_integrations/mixed_model_swarm.py) |
 | MCP server | [05_integrations/mcp/](05_integrations/mcp/) |
 
 ---
