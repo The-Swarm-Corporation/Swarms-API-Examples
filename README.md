@@ -1,6 +1,11 @@
 # Swarms API Examples
 
-A comprehensive example suite for the [Swarms API](https://docs.swarms.ai) — one
+[![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/EamjgSaEQf)
+[![Website](https://img.shields.io/badge/Website-swarms.ai-0F172A?style=flat-square&logo=googlechrome&logoColor=white)](https://swarms.ai)
+[![Docs](https://img.shields.io/badge/Docs-docs.swarms.ai-2563EB?style=flat-square&logo=readthedocs&logoColor=white)](https://docs.swarms.ai)
+[![Cloud Platform](https://img.shields.io/badge/Cloud-cloud.swarms.world-7C3AED?style=flat-square&logo=icloud&logoColor=white)](https://cloud.swarms.world)
+
+A comprehensive example suite for the [Swarms API](https://docs.swarms.ai) one
 endpoint that runs AI agents, alone or in coordinated swarms, on any frontier model.
 
 An agent is a system prompt, a model, and a task:
