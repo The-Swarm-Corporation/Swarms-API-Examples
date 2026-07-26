@@ -1,9 +1,33 @@
 # Swarms API Examples
 
-Runnable examples for the [Swarms API](https://docs.swarms.ai) — from a single agent
-answering one question, to multi-agent swarms coordinating dozens of specialists.
+A comprehensive example suite for the [Swarms API](https://docs.swarms.ai) — one
+endpoint that runs AI agents, alone or in coordinated swarms, on any frontier model.
 
-Every example is a standalone file. Set your API key, pick one, run it.
+An agent is a system prompt, a model, and a task:
+
+```bash
+curl -X POST "https://api.swarms.world/v1/agent/completions" \
+  -H "x-api-key: $SWARMS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agent_config": {
+      "system_prompt": "You are a research analyst.",
+      "model_name": "anthropic/claude-opus-5"
+    },
+    "task": "What are the tradeoffs between vector search and keyword search?"
+  }'
+```
+
+From there the request grows along two axes, and nothing else about it changes:
+
+- **Models** — swap `model_name` for `openai/gpt-5`, `gemini/gemini-2.5-pro`,
+  `groq/llama-3.3-70b-versatile`, or anything on OpenRouter → [Models](#models)
+- **Agents** — replace `agent_config` with a list of `agents` and a `swarm_type`, and
+  the same endpoint runs them in sequence, in parallel, under a coordinator, or as a
+  graph you define → [Swarm types](#swarm-types)
+
+No framework to learn, no orchestration to host, no provider SDKs to wire together.
+Every example here is a standalone file: set your key, pick one, run it.
 
 ---
 
