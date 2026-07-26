@@ -39,7 +39,7 @@ defaults to `https://api.swarms.world`. Point at a different deployment by setti
 | Use no dependencies at all | [`01_getting_started/hello_agent.sh`](01_getting_started/hello_agent.sh) |
 | Understand every agent config field | [`02_single_agent/basics/agent_completion.py`](02_single_agent/basics/agent_completion.py) |
 | Pick the right swarm type | [Swarm types](#swarm-types) below |
-| Pick the right model | [`07_model_integrations/`](07_model_integrations/) |
+| Pick the right model | [Models](#models) below |
 | See a real-world build | [`04_industry_examples/`](04_industry_examples/) |
 
 ---
@@ -55,7 +55,6 @@ defaults to `https://api.swarms.world`. Point at a different deployment by setti
 | [`05_integrations/`](05_integrations/) | Python SDK, MCP server, raw cURL |
 | [`06_platform_utilities/`](06_platform_utilities/) | Models, rate limits, credits, usage, logs |
 | [`07_model_integrations/`](07_model_integrations/) | One agent per provider — GPT-5, Claude Opus/Sonnet 5, Gemini, Groq, DeepSeek, Grok, OpenRouter |
-| [`docs/`](docs/) | Long-form reference for agent completions and graph workflows |
 
 ---
 
@@ -76,6 +75,39 @@ of the work, not by agent count.
 
 List what your account can reach with
 [`06_platform_utilities/list_swarm_types.py`](06_platform_utilities/list_swarm_types.py).
+
+---
+
+## Models
+
+Every provider reaches you through the same `agent_config`. Only `model_name` changes,
+so any example in this repo runs on any model in this table.
+
+| Provider | `model_name` | Example |
+|---|---|---|
+| OpenAI | `openai/gpt-5` | [openai_gpt_5.py](07_model_integrations/openai_gpt_5.py) |
+| Anthropic | `anthropic/claude-opus-5` | [anthropic_claude_opus_5.py](07_model_integrations/anthropic_claude_opus_5.py) |
+| Anthropic | `anthropic/claude-sonnet-5` | [anthropic_claude_sonnet_5.py](07_model_integrations/anthropic_claude_sonnet_5.py) |
+| Google | `gemini/gemini-2.5-pro` | [google_gemini_agent.py](07_model_integrations/google_gemini_agent.py) |
+| DeepSeek | `deepseek/deepseek-reasoner` | [deepseek_agent.py](07_model_integrations/deepseek_agent.py) |
+| xAI | `xai/grok-4` | [xai_grok_agent.py](07_model_integrations/xai_grok_agent.py) |
+| Groq | `groq/llama-3.3-70b-versatile` | [groq_agent.py](07_model_integrations/groq_agent.py) |
+| OpenRouter | `openrouter/<vendor>/<model>` | [openrouter_agent.py](07_model_integrations/openrouter_agent.py) |
+
+OpenRouter takes **two** slashes — the vendor segment is OpenRouter's, not a Swarms
+provider. A few short OpenAI names (`gpt-4.1`, `gpt-4o`) still resolve without a prefix,
+which is why older examples here use them; prefer the explicit prefix in new code.
+
+| Then | Run |
+|---|---|
+| Compare models on your own task — latency, tokens, cost | [compare_models.py](07_model_integrations/compare_models.py) |
+| Use a different model per agent inside one swarm | [mixed_model_swarm.py](07_model_integrations/mixed_model_swarm.py) |
+| Confirm what your key can actually route to | [list_supported_models.py](07_model_integrations/list_supported_models.py) |
+
+Reasoning models (GPT-5, Claude Opus/Sonnet 5, `deepseek-reasoner`) accept
+`reasoning_effort` — `minimal`, `low`, `medium`, or `high`. Higher effort spends more
+tokens thinking before answering; the default is `low`. Full notes in
+[`07_model_integrations/README.md`](07_model_integrations/README.md).
 
 ---
 
@@ -106,7 +138,9 @@ The same examples, indexed by the domain they were built for.
 | Reasoning agents | [02_single_agent/reasoning/](02_single_agent/reasoning/) |
 | Auto-generated agent teams | [03_multi_agent/auto_generate_agents/](03_multi_agent/auto_generate_agents/) |
 | Frontier models (Claude Opus) | [02_single_agent/models/](02_single_agent/models/) |
-| Every model provider | [07_model_integrations/](07_model_integrations/) · [compare them side by side](07_model_integrations/compare_models.py) · [one swarm, many models](07_model_integrations/mixed_model_swarm.py) |
+| Every model provider | [07_model_integrations/](07_model_integrations/) — see [Models](#models) above |
+| Comparing models on one task | [compare_models.py](07_model_integrations/compare_models.py) |
+| Different model per agent in a swarm | [mixed_model_swarm.py](07_model_integrations/mixed_model_swarm.py) |
 | MCP server | [05_integrations/mcp/](05_integrations/mcp/) |
 
 ---
@@ -130,8 +164,8 @@ only what you need:
 
 - **API docs** — <https://docs.swarms.ai>
 - **Swarms docs** — <https://docs.swarms.world>
-- **Agent completions reference** — [`docs/agent_completions.md`](docs/agent_completions.md)
-- **Graph workflow reference** — [`docs/graph_workflow.md`](docs/graph_workflow.md)
+- **Agent completions reference** — <https://docs.swarms.ai/api-reference/agents/execute-agent-completion>
+- **Model integrations** — [`07_model_integrations/README.md`](07_model_integrations/README.md)
 - **Talk to us** — <https://cal.com/swarms>
 
 ## Contributing
